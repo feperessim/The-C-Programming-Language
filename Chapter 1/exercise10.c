@@ -25,14 +25,12 @@ int main(void)
 	int c;
 
 	while ((c = getchar()) != EOF){
-		if (c == '\t')
-			printf("\\t");
-		if (c == '\b')
-			printf("\\b\n");
-		if(c == '\\')
-			printf("\\\\\n");
-		if(c != '\t' && c != '\b' && c != '\\')
-			putchar(c);
+		switch(c){
+			case '\t': printf("\\t");break;
+			case '\\': printf("\\\\");break;
+			case '\b': printf("\\b");break;
+			default: putchar(c);
+		}
 	}
 	return 0;
 }	
